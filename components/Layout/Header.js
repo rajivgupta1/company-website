@@ -21,11 +21,11 @@ const Header = () => {
           (scrollActive ? " shadow-md pt-0" : " pt-4")
         }
       >
-        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
-          <div className="col-start-1 col-end-2 flex items-center">
-            <LogoVPN className="h-8 w-auto" />
+        <nav className="grid max-w-screen-xl grid-flow-col px-6 py-3 mx-auto sm:px-8 lg:px-16 sm:py-4">
+          <div className="flex items-center col-start-1 col-end-2">
+            <LogoVPN className="w-auto h-8" />
           </div>
-          <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500  items-center">
+          <ul className="items-center hidden col-start-4 col-end-8 lg:flex text-black-500">
             <LinkScroll
               activeClass="active"
               to="about"
@@ -99,21 +99,16 @@ const Header = () => {
               Testimonial
             </LinkScroll>
           </ul>
-          <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <Link href="/">
-              <a className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all">
-                  Sign In
-              </a>
-            </Link>
-            <ButtonOutline>Sign Up</ButtonOutline>
+          <div className="flex items-center justify-end col-start-10 col-end-12 font-large">
+            <ButtonOutline>Contact Us</ButtonOutline>
           </div>
         </nav>
       </header>
       {/* Mobile Navigation */}
 
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t ">
+      <nav className="fixed bottom-0 left-0 right-0 z-20 px-4 lg:hidden sm:px-8 shadow-t ">
         <div className="bg-white-500 sm:px-3">
-          <ul className="flex w-full justify-between items-center text-black-500">
+          <ul className="flex items-center justify-between w-full text-black-500">
             <LinkScroll
               activeClass="active"
               to="about"

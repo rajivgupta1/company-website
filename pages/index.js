@@ -10,8 +10,8 @@ export default function Home() {
       <SeoHead title='LaslesVPN Landing Page' />
       <Layout>
         <Hero />
-        <Feature />
         <Pricing />
+        <Feature />
       </Layout>
     </>
   );
