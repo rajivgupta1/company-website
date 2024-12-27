@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import Image from "next/image";
 import Testimoni from "./Testimoni";
 import ButtonPrimary from "./misc/ButtonPrimary";
 import ButtonOutline from "./misc/ButtonOutline.";
@@ -46,13 +45,13 @@ const SERVICES = [
   }
 ];
 
-const Pricing = () => {
+const Services = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
     <div
       className="w-full bg-gradient-to-b from-white-300 to-white-500 py-14"
-      id="pricing"
+      id="services"
     >
       <div className="flex flex-col justify-center w-full max-w-screen-xl px-6 mx-auto text-center sm:px-8 lg:px-16">
         <div className="flex flex-col w-full">
@@ -192,4 +191,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default Services;
