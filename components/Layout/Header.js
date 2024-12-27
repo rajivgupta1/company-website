@@ -24,9 +24,10 @@ const Header = () => {
         }
       >
         <nav className="grid max-w-screen-xl grid-flow-col px-6 py-3 mx-auto sm:px-8 lg:px-16 sm:py-4">
-          <div className="flex items-center col-start-1 col-end-2">
-            <LogoVPN className="w-auto h-8" />
+          <div className="flex items-center col-start-1 col-end-2 font-bold text-orange-500 cursor-pointer animation-hover">
+            BRIGHT IT HUB
           </div>
+          
           <ul className="items-center hidden col-start-4 col-end-8 lg:flex text-black-500">
           <LinkScroll
               activeClass="active"
@@ -68,42 +69,6 @@ const Header = () => {
 
             <LinkScroll
               activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              onSetActive={() => {
-                setActiveLink("about");
-              }}
-              className={
-                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "about"
-                  ? " text-orange-500 animation-active "
-                  : " text-black-500 hover:text-orange-500 a")
-              }
-            >
-              About
-            </LinkScroll>
-            <LinkScroll
-              activeClass="active"
-              to="feature"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              onSetActive={() => {
-                setActiveLink("feature");
-              }}
-              className={
-                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "feature"
-                  ? " text-orange-500 animation-active "
-                  : " text-black-500 hover:text-orange-500 ")
-              }
-            >
-              Feature
-            </LinkScroll>
-            <LinkScroll
-              activeClass="active"
               to="testimoni"
               spy={true}
               smooth={true}
@@ -120,6 +85,45 @@ const Header = () => {
             >
               Testimonial
             </LinkScroll>
+
+            <LinkScroll
+              activeClass="active"
+              to="feature"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("feature");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "feature"
+                  ? " text-orange-500 animation-active "
+                  : " text-black-500 hover:text-orange-500 ")
+              }
+            >
+              Feature
+            </LinkScroll>
+
+            <LinkScroll
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("about");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "about"
+                  ? " text-orange-500 animation-active "
+                  : " text-black-500 hover:text-orange-500 a")
+              }
+            >
+              About
+            </LinkScroll>
+            
           </ul>
           <div className="flex items-center justify-end col-start-10 col-end-12 font-large">
             <ButtonOutline>Contact Us</ButtonOutline>
@@ -133,68 +137,38 @@ const Header = () => {
           <ul className="flex items-center justify-between w-full text-black-500">
             <LinkScroll
               activeClass="active"
-              to="about"
+              to="home"
               spy={true}
               smooth={true}
               duration={1000}
               onSetActive={() => {
-                setActiveLink("about");
+                setActiveLink("home");
               }}
               className={
                 "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
-                (activeLink === "about"
+                (activeLink === "home"
                   ? "  border-orange-500 text-orange-500"
                   : " border-transparent")
               }
             >
-              <svg
+              <svg 
+                xmlns="http://www.w3.org/2000/svg"   
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
                 className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+                <path 
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                ></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
-              About
+              Home
             </LinkScroll>
-            <LinkScroll
-              activeClass="active"
-              to="feature"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              onSetActive={() => {
-                setActiveLink("feature");
-              }}
-              className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
-                (activeLink === "feature"
-                  ? "  border-orange-500 text-orange-500"
-                  : " border-transparent ")
-              }
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                />
-              </svg>
-              Feature
-            </LinkScroll>
+
             <LinkScroll
               activeClass="active"
               to="pricing"
@@ -227,6 +201,7 @@ const Header = () => {
               </svg>
               Services
             </LinkScroll>
+
             <LinkScroll
               activeClass="active"
               to="testimoni"
@@ -258,6 +233,72 @@ const Header = () => {
                 />
               </svg>
               Testimonial
+            </LinkScroll>
+            
+            <LinkScroll
+              activeClass="active"
+              to="feature"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("feature");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "feature"
+                  ? "  border-orange-500 text-orange-500"
+                  : " border-transparent ")
+              }
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                />
+              </svg>
+              Feature
+            </LinkScroll>
+            
+            <LinkScroll
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("about");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "about"
+                  ? "  border-orange-500 text-orange-500"
+                  : " border-transparent")
+              }
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              About
             </LinkScroll>
           </ul>
         </div>

@@ -13,7 +13,7 @@ const About = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="flex items-stretch px-3" id="about">
+    <div className="flex items-stretch px-3 mt-24" id="about">
       <ScrollAnimationWrapper>
         <motion.h3
           variants={scrollAnimation}
