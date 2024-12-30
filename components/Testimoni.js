@@ -49,7 +49,7 @@ const Testimoni = () => {
 
   return (
     <>
-    <div className="flex flex-col w-full px-6 mx-auto my-16 text-center sm:px-8 lg:px-16" id="testimoni">
+    <div className="flex flex-col w-full px-6 mx-auto my-16 text-center sm:px-8 lg:px-16" id="testimonial">
       <ScrollAnimationWrapper>
         <motion.h3
           variants={scrollAnimation}

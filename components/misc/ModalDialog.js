@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 
 const ModalDialog = (props) => {
-  const { isOpen, closeModal, bodyText, titleText } = props;
+  const { isOpen, closeModal, modalBody, titleText } = props;
+  
   const dialogRef = useRef(null);
 
   // Open the dialog when `isOpen` is true
@@ -22,7 +23,7 @@ const ModalDialog = (props) => {
   return (
     <dialog
       ref={dialogRef}
-      className="w-full max-w-2xl p-4 bg-white rounded-lg shadow-lg dark:bg-gray-700"
+      className="w-full max-w-2xl p-4 bg-white rounded-lg shadow-lg"
       aria-labelledby="modal-title"
       aria-hidden={!isOpen}
     >
@@ -61,16 +62,8 @@ const ModalDialog = (props) => {
         </div>
 
         {/* Modal body */}
-        <div className="p-4 space-y-4 md:p-5">
-          <p className="text-left text-black-600">
-            {bodyText}
-            {bodyText}
-            {bodyText}
-            {bodyText}
-            {bodyText}
-            {bodyText}
-            {bodyText}
-          </p>
+        <div className="p-4 md:p-5">
+          {modalBody}
         </div>
       </div>
     </dialog>

@@ -86,7 +86,20 @@ const Services = () => {
                 <ModalDialog 
                   isOpen={isOpen} 
                   closeModal={closeModal} 
-                  bodyText={serviceDescription}
+                  modalBody={
+                    <p className="text-sm text-justify text-black-500">
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                      {serviceDescription}
+                    </p>
+                  }
                   titleText={serviceTitle}
                 />
               </ScrollAnimationWrapper>
