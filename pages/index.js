@@ -5,6 +5,7 @@ import Layout from "../components/Layout/Layout";
 import SeoHead from "../components/SeoHead";
 import About from "../components/About";
 import Testimoni from "../components/Testimoni";
+import GetQuote from "../components/GetQuote";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Testimoni />
         <Feature />
         <About />
+        <GetQuote />
       </Layout>
     </>
   );
