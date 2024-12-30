@@ -1,7 +1,7 @@
 import React from "react";
 
 const ButtonPrimary = (props) => {
-  const { children, addClass, type = "button" } = props
+  const { children, addClass, type = "button", onClick } = props
 
   return (
     <button
@@ -10,6 +10,7 @@ const ButtonPrimary = (props) => {
         addClass
       }
       type={type}
+      onClick={onClick}
     >
       {children}
     </button>

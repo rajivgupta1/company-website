@@ -1,22 +1,31 @@
-import { send, init } from "emailjs-com";
+import { send, init } from 'emailjs-com';
 
-const serviceId = process.env.SERVICE_ID;
-const templateId = process.env.TEMPLATE_ID;
-const userID = process.env.PUBLIC_KEY;
+const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
 export const sendEmail = (content) => {
-  init(userID);
+  if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+    console.error("Missing environment variables!");
+    return;
+  }
+
+  init(PUBLIC_KEY); // Initialize EmailJS
+
   const toSend = {
-    name: content.name,
-    email: content.email,
-    phone: content.phone,
-    message: content.message,
+    user_name: content.name,
+    user_email: content.email,
+    user_phone: content.phone,
+    user_message: content.message,
   };
-  send(serviceId, templateId, toSend)
+
+  console.log("Preparing to send email");
+
+  send(SERVICE_ID, TEMPLATE_ID, toSend)
     .then((res) => {
-      console.log(res);
+      console.log("Email sent successfully!", res);
     })
     .catch((err) => {
-      console.log(err);
+      console.error("Error sending email:", err);
     });
 };

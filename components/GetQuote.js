@@ -1,18 +1,29 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonPrimary from "./misc/ButtonPrimary";
 import { sendEmail } from "../services/email";
+import { useSetState } from "react-use";
+
+const defaultState= {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+}
 
 const GetQuote = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
+  const [state, setState] = useSetState(defaultState)
+  const { name, email, phone, message } = state
+  
   const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log("HELLOOO");
     
-    sendEmail({name: "Test", email: "Test", phone: "Test", message: "Test" })
+    sendEmail({ name, email, phone, message })
     
     // e.target.reset()
   };
@@ -52,17 +63,40 @@ const GetQuote = () => {
 
         <ScrollAnimationWrapper>
           <motion.div className="flex flex-col items-end justify-center w-full ml-auto lg:w-9/12" variants={scrollAnimation}>
-            <form className="ml-auto space-y-4" onSubmit={(e) => handleOnSubmit(e)}>
-                <input type='text' placeholder='Name' name="name"
-                    className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" />
-                <input type='email' placeholder='Email' name="email"
-                    className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" />
-                <input type='tel' placeholder='Phone' name="phone"
-                    className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" />
-                <textarea placeholder='Message' rows="6" name="message"
-                    className="w-full px-4 pt-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent"></textarea>
+            <form className="ml-auto space-y-4">
+                <input 
+                  type='text' 
+                  placeholder='Name' 
+                  name="name"
+                  onChange={(e) => setState({name: e.target.value})}
+                  className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" 
+                />
+
+                <input 
+                  type='email' 
+                  placeholder='Email' 
+                  name="email"
+                  onChange={(e) => setState({email: e.target.email})}
+                  className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" 
+                />
+
+                <input 
+                  type='tel' 
+                  placeholder='Phone' 
+                  name="phone"
+                  onChange={(e) => setState({phone: e.target.phone})}
+                  className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" 
+                />
+                
+                <textarea 
+                  placeholder='Message' 
+                  rows="6" 
+                  name="message"
+                  onChange={(e) => setState({message: e.target.message})}
+                  className="w-full px-4 pt-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent"
+                ></textarea>
               
-              <ButtonPrimary type="submit" addClass="float-right">Send</ButtonPrimary>
+              <ButtonPrimary onClick={handleOnSubmit} addClass="float-right">Send</ButtonPrimary>
             </form>
           </motion.div>
         </ScrollAnimationWrapper>
