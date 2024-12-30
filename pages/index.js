@@ -10,7 +10,8 @@ import GetQuote from "../components/GetQuote";
 export default function Home() {
   return (
     <>
-      <SeoHead title='LaslesVPN Landing Page' />
+      <SeoHead title='Bright IT Hub' />
+
       <Layout>
         <Hero />
         <Services />

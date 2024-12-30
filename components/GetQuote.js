@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
@@ -21,11 +21,10 @@ const GetQuote = () => {
   
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("HELLOOO");
     
     sendEmail({ name, email, phone, message })
     
-    // e.target.reset()
+    setState(defaultState)
   };
   
   return (
@@ -68,7 +67,7 @@ const GetQuote = () => {
                   type='text' 
                   placeholder='Name' 
                   name="name"
-                  onChange={(e) => setState({name: e.target.value})}
+                  onChange={(e) => setState({ name: e.target.value })}
                   className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" 
                 />
 
@@ -76,7 +75,7 @@ const GetQuote = () => {
                   type='email' 
                   placeholder='Email' 
                   name="email"
-                  onChange={(e) => setState({email: e.target.email})}
+                  onChange={(e) => setState({ email: e.target.value })}
                   className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" 
                 />
 
@@ -84,7 +83,7 @@ const GetQuote = () => {
                   type='tel' 
                   placeholder='Phone' 
                   name="phone"
-                  onChange={(e) => setState({phone: e.target.phone})}
+                  onChange={(e) => setState({ phone: e.target.value })}
                   className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" 
                 />
                 
@@ -92,7 +91,7 @@ const GetQuote = () => {
                   placeholder='Message' 
                   rows="6" 
                   name="message"
-                  onChange={(e) => setState({message: e.target.message})}
+                  onChange={(e) => setState({message: e.target.value})}
                   className="w-full px-4 pt-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent"
                 ></textarea>
               

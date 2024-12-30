@@ -19,11 +19,9 @@ export const sendEmail = (content) => {
     message: content.message,
   };
 
-  console.log("Preparing to send email");
-
   send(SERVICE_ID, TEMPLATE_ID, toSend)
     .then((res) => {
-      console.log("Email sent successfully!", res);
+      alert("Thank you for contacting us, we will get back you soon.")
     })
     .catch((err) => {
       console.error("Error sending email:", err);
