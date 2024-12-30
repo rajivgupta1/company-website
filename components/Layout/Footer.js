@@ -8,8 +8,8 @@ import { SERVICES } from "../../constants/services";
 const Footer = () => {
   return (
     <div className="pt-12 pb-24 bg-white-300">
-      <div className="grid w-full max-w-screen-xl grid-flow-row grid-cols-3 grid-rows-6 gap-4 px-4 mx-auto sm:px-6 lg:px-16 sm:grid-rows-1 sm:grid-flow-col sm:grid-cols-12">
-        <div className="flex flex-col items-start col-start-1 col-end-5 row-span-2">
+      <div className="grid w-full max-w-screen-xl grid-cols-1 gap-4 px-4 mx-auto sm:px-6 lg:px-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:grid-flow-row">
+        <div className="flex flex-col items-start mb-8 sm:mb-4">
           <p className="mb-4">
             <strong className="font-medium">Bright IT Hub</strong> is a private
             virtual network that has unique features and has high security.
@@ -28,34 +28,34 @@ const Footer = () => {
           <p className="text-gray-400">©{new Date().getFullYear()} - Bright IT Hub</p>
         </div>
         
-        <div className="flex flex-col col-start-5 col-end-9 row-span-2">
+        <div className="flex flex-col mb-8 sm:mb-4 sm:pb-4">
           <p className="mb-4 text-lg font-medium text-black-600">Services</p>
           <ul className="text-black-500 ">
             {SERVICES.map(service => (
-              <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
+              <li key={service.name} className="my-2 transition-all cursor-pointer hover:text-orange-500">
                 {service.name}
               </li>
             ))}
           </ul>
         </div>
         
-        <div className="flex flex-col col-start-9 col-end-12 row-span-2">
+        <div className="flex flex-col sm:pb-4">
           <p className="mb-4 text-lg font-medium text-black-600">Engage</p>
           <ul className="text-black-500">
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              FAQ{" "}
+              FAQ
             </li>
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              Tutorials{" "}
+              Tutorials
             </li>
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              About Us{" "}
+              About Us
             </li>
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              Privacy Policy{" "}
+              Privacy Policy
             </li>
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              Terms of Service{" "}
+              Terms of Service
             </li>
           </ul>
         </div>
