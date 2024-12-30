@@ -13,10 +13,10 @@ export const sendEmail = (content) => {
   init(PUBLIC_KEY); // Initialize EmailJS
 
   const toSend = {
-    user_name: content.name,
-    user_email: content.email,
-    user_phone: content.phone,
-    user_message: content.message,
+    name: content.name,
+    email: content.email,
+    phone: content.phone,
+    message: content.message,
   };
 
   console.log("Preparing to send email");
