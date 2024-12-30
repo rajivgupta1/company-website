@@ -1,13 +1,22 @@
-import Image from "next/image";
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonPrimary from "./misc/ButtonPrimary";
+import { sendEmail } from "../services/email";
 
 const GetQuote = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log("HELLOOO");
+    
+    sendEmail({name: "Test", email: "Test", phone: "Test", message: "Test" })
+    
+    // e.target.reset()
+  };
+  
   return (
     <div
       className="max-w-screen-xl px-6 mx-auto mt-8 mb-6 sm:mt-14 sm:mb-14 sm:px-8 lg:px-16"
@@ -16,14 +25,14 @@ const GetQuote = () => {
       <div className="grid grid-flow-row grid-cols-1 gap-8 my-12 sm:grid-flow-col sm:grid-cols-2 p y-8">
         <ScrollAnimationWrapper className="flex justify-end w-full">
           <motion.div className="w-full h-full p-4" variants={scrollAnimation}>
-            <h1 class="text-gray-800 text-3xl font-extrabold">Let's Talk</h1>
-            <p class="text-sm mt-4">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help.</p>
+            <h1 className="text-3xl font-extrabold text-gray-800">Let's Talk</h1>
+            <p className="mt-4 text-sm">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help.</p>
 
-            <div class="mt-4">
-                <h2 class="text-black-600 text-base font-bold">Email</h2>
-                <ul class="mt-4">
-                    <li class="flex items-center">
-                        <div class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <div className="mt-4">
+                <h2 className="text-base font-bold text-black-600">Email</h2>
+                <ul className="mt-4">
+                    <li className="flex items-center">
+                        <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#007bff'
                                 viewBox="0 0 479.058 479.058">
                                 <path
@@ -31,8 +40,8 @@ const GetQuote = () => {
                                     data-original="#000000" />
                             </svg>
                         </div>
-                        <a href="mailto:support@brightithub.com" class="text-[#007bff] text-sm ml-4">
-                            <small class="block">Mail</small>
+                        <a href="mailto:support@brightithub.com" className="text-[#007bff] text-sm ml-4">
+                            <small className="block">Mail</small>
                             <strong>support@brightithub.com</strong>
                         </a>
                     </li>
@@ -43,17 +52,17 @@ const GetQuote = () => {
 
         <ScrollAnimationWrapper>
           <motion.div className="flex flex-col items-end justify-center w-full ml-auto lg:w-9/12" variants={scrollAnimation}>
-          <form class="ml-auto space-y-4">
-                <input type='text' placeholder='Name'
-                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-blue-500 focus:bg-transparent" />
-                <input type='email' placeholder='Email'
-                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-blue-500 focus:bg-transparent" />
-                <input type='tel' placeholder='Phone'
-                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-blue-500 focus:bg-transparent" />
-                <textarea placeholder='Message' rows="6"
-                    class="w-full rounded-md px-4 bg-gray-100 text-gray-800 text-sm pt-3 outline-blue-500 focus:bg-transparent"></textarea>
+            <form className="ml-auto space-y-4" onSubmit={(e) => handleOnSubmit(e)}>
+                <input type='text' placeholder='Name' name="name"
+                    className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" />
+                <input type='email' placeholder='Email' name="email"
+                    className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" />
+                <input type='tel' placeholder='Phone' name="phone"
+                    className="w-full px-4 py-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent" />
+                <textarea placeholder='Message' rows="6" name="message"
+                    className="w-full px-4 pt-3 text-sm text-gray-800 bg-gray-100 rounded-md outline-blue-500 focus:bg-transparent"></textarea>
               
-              <ButtonPrimary addClass="float-right">Send</ButtonPrimary>
+              <ButtonPrimary type="submit" addClass="float-right">Send</ButtonPrimary>
             </form>
           </motion.div>
         </ScrollAnimationWrapper>
