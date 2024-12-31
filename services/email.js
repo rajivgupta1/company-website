@@ -4,10 +4,10 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
-export const sendEmail = (content) => {
+export const sendEmail = async (content) => {
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     console.error("Missing environment variables!");
-    return;
+    return { success: false, message: "Missing environment variables!" };
   }
 
   init(PUBLIC_KEY); // Initialize EmailJS
@@ -19,11 +19,19 @@ export const sendEmail = (content) => {
     message: content.message,
   };
 
-  send(SERVICE_ID, TEMPLATE_ID, toSend)
-    .then((res) => {
-      alert("Thank you for contacting us, we will get back you soon.")
-    })
-    .catch((err) => {
-      console.error("Error sending email:", err);
-    });
+  try {
+    const res = await send(SERVICE_ID, TEMPLATE_ID, toSend);
+
+    if (res.status === 200) {
+      // Success: Return success message
+      return { success: true, message: "Thank you for contacting us, we will get back to you soon." };
+    } else {
+      // If status is not 200, return a generic error message
+      return { success: false, message: "Failed to send your message. Please try again." };
+    }
+  } catch (err) {
+    console.error("Error sending email:", err);
+    // Return error message
+    return { success: false, message: "Error occurred while sending email. Please try again." };
+  }
 };
