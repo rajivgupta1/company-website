@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link as LinkScroll } from "react-scroll";
 import { MENU_ITEMS } from "../../constants/menuItems";
+import Image from "next/image";
+import LOGOIMAGE from '../../public/assets/bright_it_hub_logo.png'
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -21,8 +23,8 @@ const Header = () => {
         }
       >
         <nav className="grid max-w-screen-xl grid-flow-col px-6 py-3 mx-auto sm:px-8 lg:px-16 sm:py-4">
-          <div className="flex items-center col-start-1 col-end-2 font-bold text-orange-500 cursor-pointer animation-hover">
-            BRIGHT IT HUB
+          <div className="flex items-center col-start-1 col-end-2 font-bold text-orange-500">
+            <Image src={LOGOIMAGE} width={100} height={20} />
           </div>
           
           <ul className="items-center hidden col-start-4 col-end-8 lg:flex text-black-500">
