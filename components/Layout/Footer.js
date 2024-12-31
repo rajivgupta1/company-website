@@ -1,7 +1,5 @@
 import React from "react";
-import LogoVPN from "../../public/assets/Logo.svg";
 import Facebook from "../../public/assets/Icon/facebook.svg";
-import Twitter from "../../public/assets/Icon/twitter.svg";
 import Instagram from "../../public/assets/Icon/instagram.svg";
 import { SERVICES } from "../../constants/services";
 
@@ -14,15 +12,18 @@ const Footer = () => {
             <strong className="font-medium">Bright IT Hub</strong> is a private
             virtual network that has unique features and has high security.
           </p>
+          
           <div className="flex w-full mt-2 mb-8 -mx-2">
             <div className="flex items-center justify-center p-2 mx-2 rounded-full shadow-md bg-white-500">
-              <Facebook className="w-6 h-6" />
+              <a href="https://www.facebook.com/profile.php?id=61571207402732&sk=about" target="_blank">
+                <Facebook className="w-6 h-6" />
+              </a>
             </div>
+            
             <div className="flex items-center justify-center p-2 mx-2 rounded-full shadow-md bg-white-500">
-              <Twitter className="w-6 h-6" />
-            </div>
-            <div className="flex items-center justify-center p-2 mx-2 rounded-full shadow-md bg-white-500">
-              <Instagram className="w-6 h-6" />
+              <a href="https://www.instagram.com/bright_it_hub" target="_blank">
+                <Instagram className="w-6 h-6" />
+              </a>
             </div>
           </div>
           <p className="text-gray-400">©{new Date().getFullYear()} - Bright IT Hub</p>
