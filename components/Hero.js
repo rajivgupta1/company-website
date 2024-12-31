@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import Image from "next/image";
-import ButtonPrimary from "./misc/ButtonPrimary";
 import {motion} from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import { Link as LinkScroll } from "react-scroll";
 
 const Hero = ({
   listUser = [
@@ -42,8 +42,21 @@ const Hero = ({
               <p className="mt-4 mb-6 italic text-black-500">
                 We provide comprehensive IT services, helpdesk support, and digital marketing solutions.
               </p>
-              <ButtonPrimary addClass="animate-bounce">Get Quote</ButtonPrimary>
+
+              <LinkScroll
+                activeClass="active"
+                to="getQuote"
+                spy={true}
+                smooth={true}
+                duration={1000}
+                offset={-80}
+                onSetActive={() => {}}
+                className="px-12 py-3 font-semibold transition-all bg-orange-500 rounded-lg outline-none cursor-pointer lg:py-4 lg:px-16 text-white-500 hover:shadow-orange-md animate-bounce"
+              >
+                Get Quote
+              </LinkScroll>
             </div>
+            
             <div className="flex w-full">
               <motion.div className="w-full h-full" variants={scrollAnimation}>
                 <Image
