@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from "react";
-import ButtonOutline from "./misc/ButtonOutline.";
-import Maps from "../public/assets/HugeGlobal.svg";
+import { Link as LinkScroll } from "react-scroll";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
@@ -78,7 +77,18 @@ const Services = () => {
                   </a>
                   
                   <div className="flex flex-row justify-center gap-2 mt-12 mb-8">
-                    <ButtonOutline>Get Quote</ButtonOutline>
+                    <LinkScroll
+                      activeClass="active"
+                      to="getQuote"
+                      spy={true}
+                      smooth={true}
+                      duration={1000}
+                      offset={-80}
+                      onSetActive={() => {}}
+                      className="px-12 py-3 font-semibold transition-all bg-orange-500 rounded-lg outline-none cursor-pointer lg:py-4 lg:px-16 text-white-500 hover:shadow-orange-md animate-bounce"
+                    >
+                      Get Quote
+                    </LinkScroll>
                   </div>
                 </motion.div>
 
