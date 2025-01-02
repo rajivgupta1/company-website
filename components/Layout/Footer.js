@@ -1,6 +1,10 @@
 import React from "react";
 import Facebook from "../../public/assets/Icon/facebook.svg";
 import Instagram from "../../public/assets/Icon/instagram.svg";
+import Location from "../../public/assets/Icon/location.svg";
+import Mail from "../../public/assets/Icon/email.svg";
+import Phone from "../../public/assets/Icon/phone.svg";
+
 import { SERVICES } from "../../constants/services";
 
 const Footer = () => {
@@ -9,8 +13,7 @@ const Footer = () => {
       <div className="grid w-full max-w-screen-xl grid-cols-1 gap-4 px-4 mx-auto sm:px-6 lg:px-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:grid-flow-row">
         <div className="flex flex-col items-start mb-8 sm:mb-4">
           <p className="mb-4">
-            <strong className="font-medium">Bright IT Hub</strong> is a private
-            virtual network that has unique features and has high security.
+            <strong className="font-medium text-orange-500">Bright IT Hub</strong> is your Trusted IT Partner, Simplifying Technology for Business Growth.
           </p>
           
           <div className="flex w-full mt-2 mb-8 -mx-2">
@@ -41,22 +44,16 @@ const Footer = () => {
         </div>
         
         <div className="flex flex-col sm:pb-4">
-          <p className="mb-4 text-lg font-medium text-black-600">Engage</p>
           <ul className="text-black-500">
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              FAQ
+              <a className="flex" href="https://maps.app.goo.gl/JVnBVAAS4hprpXA96" target="_blank"><Location className="w-6 h-6 mr-2" /> Suit- 420, Church Street, Parramatta</a>
             </li>
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              Tutorials
+              <a className="flex"><Mail className="w-6 h-6 mr-2" href="mailto:support@brightithub.com"/> support@brightithub.com</a>
+
             </li>
             <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              About Us
-            </li>
-            <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              Privacy Policy
-            </li>
-            <li className="my-2 transition-all cursor-pointer hover:text-orange-500">
-              Terms of Service
+              <a className="flex"><Phone className="w-6 h-6 mr-2" href="tel:0000 420 420"/> 0000 420 420</a>
             </li>
           </ul>
         </div>

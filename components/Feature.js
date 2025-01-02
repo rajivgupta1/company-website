@@ -29,8 +29,11 @@ const Feature = () => {
         <ScrollAnimationWrapper>
 
         <motion.div className="flex flex-col items-end justify-center w-full ml-auto lg:w-9/12" variants={scrollAnimation}>
-          <h3 className="text-3xl font-medium leading-relaxed lg:text-4xl text-black-600">
-            WHY CHOOSE BRIGHT IT HUB
+          <h3 className="self-start text-3xl font-medium leading-relaxed lg:text-4xl text-black-600">
+            WHY CHOOSE 
+          </h3>
+          <h3 className="self-center text-3xl font-medium leading-relaxed text-orange-500 lg:text-4xl">
+            BRIGHT IT HUB 
           </h3>
           
           <ul className="self-start mt-8 ml-8 list-inside text-black-500">
